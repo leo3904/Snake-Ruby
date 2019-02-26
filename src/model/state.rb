@@ -1,6 +1,6 @@
 #Representation of game state.
 module Model
-	module Diretion
+	module Direction
 		UP = :up
 		RIGHT = :right
 		DOWN = :down
@@ -19,7 +19,7 @@ module Model
 	class Grid < Struct.new(:rows, :cols)
 	end
 
-	class State < Struct.new(:snake, :food, :grid, :next_direction)
+	class State < Struct.new(:snake, :food, :grid, :curr_direction, :game_finished)
 	end
 
 	def self.initial_state
@@ -29,8 +29,9 @@ module Model
 			  Model::Coord.new(0,1)
 			]),
 			Model::Food.new(4, 4),
-			Model::Grid.new(16, 24)
-			Direction::DOWN
+			Model::Grid.new(16, 24),
+			Model::Direction::DOWN,
+			false
 			)
 	end
 
