@@ -2,11 +2,9 @@ require_relative "view/ruby2d"
 require_relative "model/state"
 require_relative "controller/controller"
 
-
-
 class App
   def initialize
-  	@state = Model::initial_state
+  	@state = Model.initial_state
   end
 
 	def start
